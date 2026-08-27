@@ -1,0 +1,32 @@
+{
+  "name": "document-vault",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests",
+    "sanity": "bun run lint && bun run typecheck && bun test",
+    "gendb": "prisma generate && prisma migrate dev --name init",
+    "gendb:ci": "prisma generate && prisma migrate deploy",
+    "migrate": "prisma migrate dev",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit",
+    "test:integration": "bun test tests/integration"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "graphql": "^16.9.0",
+    "graphql-yoga": "^5.7.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/bun": "latest",
+    "eslint": "^9.13.0",
+    "prisma": "^5.20.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.15.0"
+  }
+}
